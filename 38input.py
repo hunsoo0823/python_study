@@ -14,3 +14,5 @@ print(data)
 data = sys.stdin.readlines().rstrip()
 print(data)
 
+
+
