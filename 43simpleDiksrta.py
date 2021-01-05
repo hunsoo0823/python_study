@@ -1,3 +1,4 @@
+"""
 #import sys
 #input = sys.stdin.readline()
 INF = int(1e9) # 무한을 의미하는 값으로 10억 설정
@@ -15,7 +16,7 @@ distance = [INF] * (n+1)
 
 # 모든 간선 정보를 입력받기
 for _ in range(m):
-    a, b, c = map(int, input().split())
+    a, b, c = map(int, inㅇput().split())
     # a번 노드에서 b번 노드로 가는 비용이 c라는 의미
     graph[a].append((b,c))
 
@@ -58,3 +59,36 @@ for i in range(1,n+1):
     # 도달 할 수 있는 경우 거리를 출력
     else:
         print(distance[i])
+"""
+
+import sys
+input = sys.stdin.readline
+
+INF = int(1e9)
+
+n,m = map(int, input().split())
+
+start = int(input())
+
+graph = [ [] for i in range(n+1)]
+visted = [False] * (n+1)
+distance = [INF] * (n+1)
+
+for _ in range(m):
+    a, b, c = map(int, input().split())
+    graph[a].append((b,c))
+
+def get_smallest_node():
+    min_value = INF
+    index = 0
+    for i in range(1, n+1):
+        if distance[i]<min_value and not visted[i]:
+            min_value = distance[i]
+            index = i
+    return index
+
+def dijkstar(start):
+    distance[start] = 0
+    visted[start] = True
+    for j in range(n-1):
+        distance[j[0]] 
