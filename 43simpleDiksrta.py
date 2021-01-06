@@ -90,5 +90,20 @@ def get_smallest_node():
 def dijkstar(start):
     distance[start] = 0
     visted[start] = True
-    for j in range(n-1):
-        distance[j[0]] 
+    for j in graph[start]:
+        distance[j[0]] = j[1]
+    for i in range(n-1):
+        now = get_smallest_node()
+        visted[now] = True
+        for j in graph[now]:
+            cost = distance[now] + j[1]
+            if cost < distance[j[0]]:
+                distance[j[0]] = cost
+
+dijkstar(start)
+
+for i in range(1, n+1):
+    if distance[i] == INF:
+        print("INFINITY")
+    else:
+        print(distance[i])
